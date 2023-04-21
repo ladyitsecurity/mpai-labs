@@ -48,38 +48,38 @@ if __name__ == '__main__':
     path = '../images//07_elaine.tif'
     image = imread(path)
     u, v, gradient = simple_gradient(image)
-    simple_gradient_image = thresholding(gradient, 35)
+    simple_gradient_image = thresholding(gradient, 30)
 
-    fig = plt.figure(figsize=(12, 7))
-    plt.rcParams['font.size'] = '6'
-    fig.suptitle('Метод градиента')
-
-    fig.add_subplot(2, 3, 1)
-    plt.title('Исходное изображение')
-    imshow(image, cmap='gray')
-
-    fig.add_subplot(2, 3, 2)
-    plt.title('Частная производная по первому направлению')
-    imshow(u + 128, cmap='gray')
-
-    fig.add_subplot(2, 3, 3)
-    plt.title('Частная производная по второму направлению')
-    imshow(v + 128, cmap='gray')
-
-    fig.add_subplot(2, 3, 4)
-    plt.title('Оценка модуля градиента')
-    imshow(gradient, cmap='gray')
-
-    fig.add_subplot(2, 3, 5)
-    hist, bins = histogram(gradient)
-    plt.title('Гистограмма оценки модуля градиента')
-    plt.plot(bins, hist)
-
-    fig.add_subplot(2, 3, 6)
-    plt.title('Контуры метода простого градиента')
-    imshow(simple_gradient_image, cmap='gray')
-
-    plt.show()
+    # fig = plt.figure(figsize=(12, 7))
+    # plt.rcParams['font.size'] = '6'
+    # fig.suptitle('Метод градиента')
+    #
+    # fig.add_subplot(2, 3, 1)
+    # plt.title('Исходное изображение')
+    # imshow(image, cmap='gray')
+    #
+    # fig.add_subplot(2, 3, 2)
+    # plt.title('Частная производная по первому направлению')
+    # imshow(u + 128, cmap='gray')
+    #
+    # fig.add_subplot(2, 3, 3)
+    # plt.title('Частная производная по второму направлению')
+    # imshow(v + 128, cmap='gray')
+    #
+    # fig.add_subplot(2, 3, 4)
+    # plt.title('Оценка модуля градиента')
+    # imshow(gradient, cmap='gray')
+    #
+    # fig.add_subplot(2, 3, 5)
+    # hist, bins = histogram(gradient)
+    # plt.title('Гистограмма оценки модуля градиента')
+    # plt.plot(bins, hist)
+    #
+    # fig.add_subplot(2, 3, 6)
+    # plt.title('Контуры метода простого градиента')
+    # imshow(simple_gradient_image, cmap='gray')
+    #
+    # plt.show()
 
     ################################################################
     mask1 = np.array([[0, 1, 0], [1, -4, 1], [0, 1, 0]])
@@ -92,6 +92,7 @@ if __name__ == '__main__':
 
     fig = plt.figure(figsize=(12, 7))
     fig.suptitle('Метод проксимации лапласиана')
+
     fig.add_subplot(3, 4, 1)
     plt.title('Исходное изображение')
     imshow(image, cmap='gray')
@@ -107,7 +108,7 @@ if __name__ == '__main__':
 
     fig.add_subplot(3, 4, 4)
     plt.title('Контуры метода аппроксимации лапласиана 1')
-    laplacian_approximation_image1 = thresholding(laplasian1, 85)
+    laplacian_approximation_image1 = thresholding(laplasian1, 65)
     imshow(laplacian_approximation_image1, cmap='gray')
 
     fig.add_subplot(3, 4, 6)
@@ -121,7 +122,7 @@ if __name__ == '__main__':
 
     fig.add_subplot(3, 4, 8)
     plt.title('Контуры метода аппроксимации лапласиана 2')
-    laplacian_approximation_image2 = thresholding(laplasian2, 45)
+    laplacian_approximation_image2 = thresholding(laplasian2, 25)
     imshow(laplacian_approximation_image2, cmap='gray')
 
     fig.add_subplot(3, 4, 10)
@@ -135,7 +136,7 @@ if __name__ == '__main__':
 
     fig.add_subplot(3, 4, 12)
     plt.title('Контуры метода аппроксимации лапласиана 3')
-    laplacian_approximation_image3 = thresholding(laplasian3, 65)
+    laplacian_approximation_image3 = thresholding(laplasian3, 40)
     imshow(laplacian_approximation_image3, cmap='gray')
 
     plt.show()
@@ -148,6 +149,7 @@ if __name__ == '__main__':
 
     fig = plt.figure(figsize=(12, 7))
     fig.suptitle('Метод оператора Прюитт')
+
     fig.add_subplot(2, 3, 1)
     plt.title('Исходное изображение')
     imshow(image, cmap='gray')
@@ -180,6 +182,7 @@ if __name__ == '__main__':
 
     fig = plt.figure(figsize=(12, 7))
     fig.suptitle('Метод согласования для лапласиана')
+
     fig.add_subplot(2, 2, 1)
     plt.title('Исходное изображение')
     imshow(image, cmap='gray')
