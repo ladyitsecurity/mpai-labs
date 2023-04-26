@@ -45,7 +45,7 @@ def agreement_laplacian(img):
 
 
 if __name__ == '__main__':
-    path = '../images//07_elaine.tif'
+    path = 'images/07_elaine.tif'
     image = imread(path)
     u, v, gradient = simple_gradient(image)
     simple_gradient_image = thresholding(gradient, 30)
